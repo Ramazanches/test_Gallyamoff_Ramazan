@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test Ramazan Gallyamoff</title>
+</head>
+<body>
+	<header class="header">
+		<button class="header__button">Open popup button</button>
+		<div class="modal">
+			<span class="modal__closer">X</span>
+			Pop-up
+		</div>		
+	</header>	
+	<main>
+
+		<section class="section-1">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+		<section class="section-2">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+		
+	</main>
+	<footer class="footer"></footer>
+<style>
+	:root {
+		--main: #C0DBD9;
+		--blue: #7FAFF6;
+		--section-1-bg: #B3F95A;
+		--section-1-block:#8AD191;
+		--section-2-bg: #88B5BF;
+		--section-2-block: #0D89B0;
+		--button: #A5C7F9;
+	}	
+	* {
+		color: #fff;
+		font-family: 'Roboto', 'sans-serif';
+		font-weight: 400;
+		box-sizing: border-box;
+	}	
+	body {
+		margin: 0;
+		width: 100%;
+		padding: 0 15px;
+		background-color: var(--main);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.modal {
+    position: fixed;
+    z-index: 3;
+    top: 22svh;
+    left: 37svw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 400px;
+    height: 400px;
+
+    font-size: 53px;
+    line-height: 62px;
+    background-color: #fff;
+    color: #000;
+
+    opacity: 0; 
+    visibility: hidden; 
+
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+	
+	}
+	.modal__closer {
+		position: absolute;
+		width: 43px;
+		height: 39px;
+		top: 15px;
+		right: 15px;
+		font-size: 20px;
+		background-color: var(--blue);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.modal-closer::after {
+		content: 'X';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	main {
+		max-width: 1920px;
+		margin-top: 15px;
+		margin-bottom: 100px;
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		row-gap: 15px;
+	}
+	.header,
+	.footer {
+		width: 100%;
+		max-width: 1920px;
+		height: auto;
+		min-height: 100px;
+		background-color: var(--blue);
+	}
+	.header {
+
+		padding: 30px;
+	}
+	.header__button {
+		width: 206px;
+		height: 39px;
+		border-radius: 5px;
+		padding: 8px 15px;
+		border: none;
+		outline: none;
+		background-color:var(--button);
+		font-size: 20px;
+		line-height: 24px;
+		cursor: pointer;
+	}
+	.header__button:focus + .modal {
+		opacity: 1;
+		visibility: visible;
+	}
+	.section-1 {
+		background-color: var(--section-1-bg);
+		row-gap: 15px;
+		column-gap: 15px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 160px;
+		grid-template-rows: repeat(2, 198px);
+		grid-template-areas: 
+		"one one two two two three"
+		"four four four four four five";
+	}
+	.section-1 div {
+		height: 198px;
+		font-size: 53px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--section-1-block);
+	}
+
+	.section-1 div:nth-child(1) {
+		grid-area: one;
+	}
+	.section-1 div:nth-child(2) {
+		grid-area: two;
+	}
+	.section-1 div:nth-child(3) {
+		grid-area: three;
+	}
+	.section-1 div:nth-child(4) {
+		grid-area: four;
+	}
+	.section-1 div:nth-child(5) {
+		grid-area: five;
+	}
+
+	.section-1 div:nth-child(1):before {
+		content: '1';
+	}
+	.section-1 div:nth-child(2):before {
+		content: '2';
+	}
+	.section-1 div:nth-child(3):before {
+		content: '3';
+	}
+	.section-1 div:nth-child(4):before {
+		content: '4';
+	}
+	.section-1 div:nth-child(5):before {
+		content: '5';
+	}
+	.section-2 {
+		padding: 30px;
+		column-gap: 30px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-template-rows: repeat(auto-fill, 200px);
+		background-color: var(--section-2-bg);
+	}
+	.section-2 div {
+		background-color: var(--section-2-block);
+	}
+
+</style>
+</body>
+</html>
